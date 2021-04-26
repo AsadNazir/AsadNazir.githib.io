@@ -12,18 +12,18 @@
 
         :root {
             --pfont: 2rem;
-            --btnfont: 1.5rem;
-            --hfont: 4rem;
+            --btnfont: 1.3rem;
+            --hfont: 3rem;
+        }
+
+        h3 {
+            font-size: var(--hfont);
+            margin: 0;
         }
 
         h1 {
-            font-size: var(--hfont);
             margin: 0;
-        }
-
-        .cont h1 {
-            margin: 0;
-            font-size: var(--hfont);
+            font-size: 3.5rem;
 
         }
 
@@ -46,6 +46,17 @@
             outline: none;
             border: transparent;
             padding: 1em 1em;
+            margin-right: 1em;
+        }
+
+        .btn-red:hover {
+            background-color: rgb(167, 1, 1);
+            cursor: pointer;
+        }
+
+        .btn-green:hover {
+            background-color: rgb(1, 75, 1);
+            cursor: pointer;
         }
 
         .newdiv {
@@ -54,22 +65,20 @@
             font-weight: bold;
             width: 50%;
             text-align: center;
-
             border-radius: 20px;
             margin-top: 1em;
         }
 
         nav {
-            background-color: #300057;
+            background-color: rgb(43, 43, 43);
         }
 
         nav div {
             background: transparent;
-
             color: white;
             /* position: fixed; */
-            top: 0;
-            left: 0;
+            padding: 0.5vw 0;
+            flex-wrap: wrap;
             display: flex;
             width: clamp(250px, 90vw, 1000px);
             margin: 0 auto;
@@ -79,13 +88,14 @@
         }
 
         nav input {
-            width: 18%;
+            width: 20%;
 
             height: fit-content;
             padding: 0.5em 0.5em;
-            border-radius: 5px;
             font-size: var(--btnfont);
             outline: none;
+            display: block;
+            font-size: var(--btnfont);
             border: transparent;
         }
 
@@ -94,7 +104,7 @@
             text-align: center;
             margin: 0;
             flex-shrink: 2;
-            font-size: var(--hfont);
+            /* font-size: var(--hfont); */
         }
 
         .cont {
@@ -109,18 +119,29 @@
         textarea {
 
 
-            height: clamp(100px, 30vh, 500px);
+            height: clamp(180px, 30vh, 500px);
             font-size: var(--pfont);
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             margin: 2rem 0;
             resize: none;
+            border: 2px groove;
 
 
 
         }
 
-        .textarea {
+        textarea {
             width: 100%;
+        }
+
+        textarea:focus {
+            border: 2px groove blue;
+        }
+
+        input[type="text"]{
+            /* height: fit-content; */
+            font-size: var(--pfont);
+            margin-top: 2rem;
         }
 
         .note {
@@ -149,30 +170,31 @@
         }
 
         .card {
-            border: 1px solid gray;
+            border: 2px groove;
             padding: 1vw 1vw;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            max-height: 100%;
-                   
-            min-height: 35vh;
+            max-height: 300px;
+            height: fit-content;
+            min-height: 200px;
 
         }
 
-        .card .btn {
+        .btn-red {
             background-color: rgb(223, 2, 2);
         }
 
-        .card h1 {
-            font-size: var(--hfont);
+        /* .card h1 {
+            /* font-size: var(--hfont); 
             margin: 0;
-        }
+    */
 
         .text {
             overflow: auto;
-            max-height:35vh;
+            /* max-height: 35vh; */
             margin: 2vw 0;
+            width: 100%;
         }
 
         .text p {
@@ -183,15 +205,35 @@
             border: 2px solid black;
         }
 
+        .btn-class {
+            display: flex;
+
+
+        }
+
         @media only screen and (max-width: 550px) {
             html {
                 font-size: 8px;
             }
+
+            nav div {
+
+                justify-content: space-between;
+                flex-direction: column;
+
+            }
+
+            input[type="search"] {
+                margin: 2vw 0;
+                width: 60%;
+            }
+
+
         }
 
         @media only screen and (max-width: 570px) {
             html {
-                font-size: 9px;
+                font-size: 8px;
             }
 
             .card {
@@ -203,6 +245,8 @@
                 /* grid-template-columns: 1fr; */
                 grid-gap: 4vw;
             }
+
+
         }
     </style>
 </head>
@@ -217,47 +261,40 @@
 
     <main>
         <div class="cont">
-            <h1>Editable div</h1>
+            <h1>Type a note here</h1>
 
 
 
-            <textarea name="text" id="text"></textarea>
+            <!-- <input type="text" class="Title"> -->
+            <textarea name="text" id="text" placeholder="Type your note here"></textarea>
 
 
-            <button class="btn">Add note</button>
+            <div class="btn-class">
+                <button class="btn btn-green">Add note</button>
+                <button class="btn btn-red Del_all">Delete All</button>
+            </div>
         </div>
 
 
         <div class="cont2">
-            <div class="card">
-                <h1>Note</h1>
+
+            <div class="card" style="text-align:center;">
+                <h1>Add a Note here !</h1>
                 <div class="text">
-                    <p>ipsum dolor sit amet consectetur adipisicing elit. Est sequi delectus porro veritatis, distinctio
-                        doloremque et vero, ducimus nisi eos vel cumque aut, recusandae eius? Natus nemo fugiat iste
-                        temporibus.</p>
+                    <p>No note to display here</p>
                 </div>
-                <button class="btn">Delete</button>
+                <!-- <button class="btn btn-red">Delete</button> -->
             </div>
 
-            <div class="card">
-                <h1>Note</h1>
-                <div class="text">
-                    <p id="note">ipsum dolor sit amet consectetur adipisicing elit. Est sequi delectus porro veritatis,
-                        distinctio
-                        doloremque et vero, ducimus nisi eos vel cumque aut, recusandae eius? Natus nemo fugiat iste
-                        temporibus.</p>
-                </div>
-                <button class="btn">Delete</button>
-            </div>
-            <div class="card">
+            <!-- <div class="card">
                 <h1>Note</h1>
                 <div class="text">
                     <p>ipsum dolor sit amet consectetur adipisicing elit. Est sequi delectus porro veritatis, distinctio
                         doloremque et vero, ducimus nisi eos vel cumque aut, recusandae eius? Natus nemo fugiat iste
                         temporibus.</p>
                 </div>
-                <button class="btn">Delete</button>
-            </div>
+                <button class="btn btn-red">Delete</button>
+            </div> -->
         </div>
     </main>
 </body>
