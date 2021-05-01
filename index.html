@@ -12,7 +12,7 @@
 
         :root {
             --pfont: 2rem;
-            --btnfont: 1.4rem;
+            --btnfont: 1.43rem;
             --hfont: 3rem;
         }
 
@@ -45,8 +45,18 @@
             text-transform: uppercase;
             outline: none;
             border: transparent;
-            padding: 1em 1em;
+            padding: 0.9em 0.9em;
             margin-right: 1em;
+            border-radius: 4px;
+            display: flex;
+        }
+
+        .btn-red {
+            background-color: rgb(223, 2, 2);
+        }
+
+        .btn-yellow {
+            background-color: blue;
         }
 
         .btn-red:hover {
@@ -97,6 +107,7 @@
             display: block;
             font-size: var(--btnfont);
             border: transparent;
+
         }
 
 
@@ -125,23 +136,38 @@
             margin: 2rem 0;
             resize: none;
             border: 2px groove;
+            /* width: 100%; */
+            padding: 0.2em;
 
+        }
+
+        textarea:focus {
+            outline: none;
+            border: 1px solid rgb(77, 77, 255);
+        }
+
+
+        #head {
+            font-size: var(--pfont);
+            padding: 0.2em;
 
 
         }
 
-        textarea {
-            width: 100%;
-        }
-
-        /* textarea:focus {
-            border: 2px groove blue;
-        } */
-
-        input[type="text"]{
+        input[type="text"] {
             /* height: fit-content; */
             font-size: var(--pfont);
             margin-top: 2rem;
+            border: 2px groove;
+            padding: 0.2em;
+        }
+
+        input[type="text"]:focus {
+
+
+            outline: none;
+            border: 1px solid red;
+
         }
 
         .note {
@@ -181,18 +207,12 @@
 
         }
 
-        .btn-red {
-            background-color: rgb(223, 2, 2);
+        .btn:hover {
+            cursor: pointer;
         }
-
-        /* .card h1 {
-            /* font-size: var(--hfont); 
-            margin: 0;
-    */
 
         .text {
             overflow: auto;
-            /* max-height: 35vh; */
             margin: 2vw 0;
             width: 100%;
         }
@@ -209,6 +229,18 @@
             display: flex;
 
 
+        }
+
+        .btn-yellow:hover {
+            background-color: rgb(0, 0, 175);
+        }
+
+        .border {
+            border-radius: 4px;
+        }
+
+        .btn-border {
+            border: 2px solid red;
         }
 
         @media only screen and (max-width: 550px) {
@@ -255,7 +287,7 @@
     <nav>
         <div>
             <h1>Notes Website</h1>
-            <input type="search" name="Search" id="serach" placeholder="Search" autocomplete="off">
+            <input type="search" class="border" name="Search" id="search" placeholder="Search" autocomplete="off">
         </div>
     </nav>
 
@@ -265,8 +297,9 @@
 
 
 
-            <!-- <input type="text" class="Title"> -->
-            <textarea name="text" id="text" placeholder="Type your note here"></textarea>
+
+            <input type="text" name="text" id="head" class="border" placeholder="Title here">
+            <textarea name="text" id="text" class="border" placeholder="Type your note here"></textarea>
 
 
             <div class="btn-class">
@@ -278,12 +311,11 @@
 
         <div class="cont2">
 
-            <div class="card" style="text-align:center;">
+            <div class="card border" style="text-align:center;">
                 <h1>Add a Note here !</h1>
                 <div class="text">
                     <p>No note to display here</p>
                 </div>
-                <!-- <button class="btn btn-red">Delete</button> -->
             </div>
 
             <!-- <div class="card">
@@ -293,7 +325,10 @@
                         doloremque et vero, ducimus nisi eos vel cumque aut, recusandae eius? Natus nemo fugiat iste
                         temporibus.</p>
                 </div>
+                <div class="btn-class">
                 <button class="btn btn-red">Delete</button>
+                <button class="btn btn-yellow">Mark</button>
+                </div>
             </div> -->
         </div>
     </main>
